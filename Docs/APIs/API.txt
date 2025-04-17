@@ -1,0 +1,22 @@
+Main: 
+    http://localhost:3001
+
+APIs:
+    / => GET :Main API :M
+
+    /api/user/ => GET: get users: NM
+        /new/ => POST
+        /get-all/ => GET
+
+    /api/products/ => GET :M
+        / => GET 
+        /add => POST 
+        /:id/edit 
+
+    /api/msg/ => :M 
+        / => GET
+        /add => POST
+
+     /api/settings/ :M
+	/ => GET
+	/edit  => POST

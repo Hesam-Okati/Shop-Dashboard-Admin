@@ -1,0 +1,17 @@
+.NotFaund {
+    flex: 4;
+
+    text-align: center;
+    animation: vib 3s infinite ease;
+
+}
+
+@keyframes vib{
+    0% {
+        color: red;
+    }
+
+    100% {
+        color: green;
+    }
+}

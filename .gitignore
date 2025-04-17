@@ -1,0 +1,52 @@
+# Ignore Node.js dependencies
+**/node_modules/
+
+# Ignore environment variables
+.env
+
+# Ignore log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore build output
+dist/
+build/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE settings
+.vscode/
+
+# Ignore frontend specific
+FrontEnd/public/dist/
+FrontEnd/public/build/
+
+# Ignore docs cache or generated
+Docs/**/*.log
+Docs/**/*.tmp
+Docs/**/__pycache__/
+
+# Ignore optional lock files (depending on package manager)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore Live Server & Prettier cache
+.vscode/*
+!.vscode/settings.json
+.prettierignore
+.prettiercache
+
+# Ignore Mac or Windows system files
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Ignore any .log, .tmp, or .bak files across project
+**/*.log
+**/*.tmp
+**/*.bak

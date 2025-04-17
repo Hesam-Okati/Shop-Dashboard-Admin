@@ -1,0 +1,31 @@
+CMS
+    massage
+		id
+		type
+		content
+		date		
+
+    products
+		id
+		title
+		img_url
+		count
+		price
+		status
+		IsInStock
+		desc
+
+    user
+		
+ 		id
+ 		name
+ 		familly
+ 		avatar
+ 		password
+ 		email 	
+		
+    settings
+		 id 	
+		Theme_color
+	 	Site_Name 	
+    

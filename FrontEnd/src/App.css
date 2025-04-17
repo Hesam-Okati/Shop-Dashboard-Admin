@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+}
+
+.Link {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    user-select: none;
+}
+
+@font-face {
+    font-family: dana;
+    src: url(../public/assets/fonts/Dana-Regular.ttf);
+}
+@font-face {
+    font-family: danaBold;
+    src: url(../public/assets/fonts/Dana-Bold.ttf);
+}
+.DB {
+    font-family: danaBold;
+}
+* {
+    font-family: dana;
+    margin: 0;
+}
+
+

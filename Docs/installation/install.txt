@@ -1,0 +1,8 @@
+Node Address:
+	https://nodejs.org
+
+ 
+Note: 
+	نصخه نود جی اس اید له صورت زیر باشد
+	20.16.0
+	

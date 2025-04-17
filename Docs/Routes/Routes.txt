@@ -1,0 +1,18 @@
+
+    {path : "/" , element : <Home />},
+    {path : "/users" , element : <Users />},
+    {path : "/new_user" , element : <NewUsre />},
+    {path : "/products" , element : <Products />},
+    {path: "/product/:productID" , element :<Product />},
+    {path: "/new-products" , element :<NewProduct />},
+    {path: "/massages" , element :<Massages />},
+    {path: "/Settings" , element :<Settings />},
+    {path: "/Analytics" , element :<Analytics />},
+    {path: "/Sales" , element :<Sales />},
+    {path: "/mail" , element :<Mail />},
+    {path: "/Feedback" , element :<Feedback />},
+    {path: "/Transactions" , element :<Transactions />},
+     
+    {path:"*" , element : <NotFaund />}
+
+

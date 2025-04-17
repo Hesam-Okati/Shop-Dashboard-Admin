@@ -1,0 +1,55 @@
+.NewProduct {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 4;
+    
+    background-color: #00008b;
+    h5 {
+       color: #ffffff;
+       font-size: 20px;
+       margin-bottom: 20px;
+    }
+
+
+
+}   
+
+
+#NewProduct-form {
+    display: flex;
+    flex-direction: column;
+
+    * {
+        padding: 4px;
+        color: wheat;
+        margin-bottom: 20px;
+        max-width: 200px;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid white;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    select option{
+        background-color: black;
+        
+    }
+}
+
+
+.NewProduct-send {
+    border: 1px solid white !important;
+    transition: all 250ms;
+    cursor: pointer;
+
+    &:hover {
+        color: #00008b !important;
+        background-color: #fff !important;
+    }
+}

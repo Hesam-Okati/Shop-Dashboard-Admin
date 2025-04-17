@@ -1,0 +1,16 @@
+.ErrorBox {
+    background: linear-gradient( rgb(216, 196, 15) , rgba(166, 255, 0, 0.393));
+    width: 70vw;
+    height: 10vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 50px;
+
+    h3 {
+        font-size: 200%;
+    }
+}
+
