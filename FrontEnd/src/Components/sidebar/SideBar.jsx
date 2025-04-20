@@ -4,7 +4,6 @@ import { MdDynamicFeed, MdLineStyle, MdSettings } from "react-icons/md";
 import { RiTimeLine } from "react-icons/ri";
 import { BiDollar, BiTrendingUp, BiUser } from "react-icons/bi";
 import { BsShop } from "react-icons/bs";
-import { IoMailOpenOutline } from "react-icons/io5";
 import { CgMail } from "react-icons/cg";
 import { TbMassage } from "react-icons/tb";
 import { Link } from "react-router-dom";

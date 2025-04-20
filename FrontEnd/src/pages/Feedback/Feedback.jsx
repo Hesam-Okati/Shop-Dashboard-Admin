@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Fb.css"
 import {
   Box,
@@ -17,34 +17,43 @@ import {
 import EmailIcon from '@mui/icons-material/Email';
 import SearchIcon from '@mui/icons-material/Search';
 
-const messages = [
-  {
-    id: 1,
-    sender: 'John Doe',
-    subject: 'Order Inquiry',
-    preview: 'I have a question about my recent order...',
-    date: 'Far 14',
-    unread: true,
-  },
-  {
-    id: 2,
-    sender: 'System',
-    subject: 'New Sale Notification',
-    preview: 'You sold 3 items today. Great job!',
-    date: 'Far 13',
-    unread: false,
-  },
-  {
-    id: 3,
-    sender: 'Jane Smith',
-    subject: 'Return Request',
-    preview: 'I would like to return one of the products...',
-    date: 'Far 12',
-    unread: true,
-  },
-];
+// const messages = [
+//   {
+//     id: 1,
+//     sender: 'John Doe',
+//     subject: 'Order Inquiry',
+//     preview: 'I have a question about my recent order...',
+//     date: 'Far 14',
+//     unread: true,
+//   },
+//   {
+//     id: 2,
+//     sender: 'System',
+//     subject: 'New Sale Notification',
+//     preview: 'You sold 3 items today. Great job!',
+//     date: 'Far 13',
+//     unread: false,
+//   },
+//   {
+//     id: 3,
+//     sender: 'Jane Smith',
+//     subject: 'Return Request',
+//     preview: 'I would like to return one of the products...',
+//     date: 'Far 12',
+//     unread: true,
+//   },
+// ];
+
+
 
 const Feedback = () => {
+  const [messages , setMessages] = useState([])
+  
+  useEffect(() => {
+    fetch("http://localhost:3001/api/feedbacks/")
+      .then(res => res.text())
+      .then(data => setMessages(JSON.parse(data)))
+  } , [])
   return (
     <div className="Mail">
           <Box sx={{ p: 3 }}>
@@ -73,12 +82,12 @@ const Feedback = () => {
       <List>
         {messages.map((msg) => (
           <React.Fragment key={msg.id}>
-            <ListItem alignItems="flex-start" button selected={msg.unread}>
+            <ListItem alignItems="flex-start"  selected={true}>
               <ListItemAvatar>
                 <Badge
                   color="primary"
                   variant="dot"
-                  invisible={!msg.unread}
+                  invisible={true}
                 >
                   <Avatar>
                     <EmailIcon />
@@ -86,8 +95,8 @@ const Feedback = () => {
                 </Badge>
               </ListItemAvatar>
               <ListItemText
-                primary={`${msg.sender} — ${msg.subject}`}
-                secondary={`${msg.preview}`}
+                primary={`Customer — ${msg.title}`}
+                secondary={`${msg.descs}`}
                 secondaryTypographyProps={{ noWrap: true }}
               />
               <Typography variant="caption" sx={{ ml: 2 }}>

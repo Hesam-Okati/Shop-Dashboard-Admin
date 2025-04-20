@@ -1,4 +1,5 @@
 .sidebar {
+    z-index: 9999;
     flex: 1;
     height: calc(100vh - 50px);
     background: rgb(251, 251, 255);    

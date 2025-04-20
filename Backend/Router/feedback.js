@@ -18,13 +18,13 @@ feedback.get("/", (req, res) => {
 
 feedback.post("/add", (req, res) => {
 
-    const { title , descs , rate ,	date , feedback_ID } = req.body
+    const { title , descs , rate ,	date , unread } = req.body
 
-    CMS_DB.query(`INSERT INTO feedback VALUES (NULL , "${title}" ,	${descs} , 	${rate} ,	${date}	 , ${feedback_ID}	)`, (err, result) => {
+    CMS_DB.query(`INSERT INTO feedback VALUES (NULL , "${title}" ,	"${descs}" , ${rate} , '${date}' , ${unread})`, (err) => {
         if (err) {
             console.log(err)
         } else {
-            res.send(result)
+            res.send("result")
         }
     })
 })

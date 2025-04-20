@@ -2,6 +2,7 @@
     background-image: linear-gradient(#022082 , #0c236f);
     padding: 40px 20%;
     display: flex;
+    width: 100%;
 }
 
 .input-nu {

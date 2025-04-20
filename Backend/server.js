@@ -20,7 +20,7 @@ const app = express()
 const { NODE_ENV , PORT } = process.env
 
 app.use(cors())
-app.use(bodyParser.urlencoded({ extended : false }))
+app.use(bodyParser.json())
 app.use(morgan("dev"))
 
 

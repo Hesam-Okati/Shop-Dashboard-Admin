@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Sales.css"
 import {
   Box,
@@ -16,38 +16,25 @@ import {
   MenuItem,
 } from '@mui/material';
 
-const mockOrders = [
-  {
-    id: 'ORD-1001',
-    customer: 'John Doe',
-    date: '2025-04-14',
-    total: 120.5,
-    status: 'Paid',
-  },
-  {
-    id: 'ORD-1002',
-    customer: 'Jane Smith',
-    date: '2025-04-13',
-    total: 80.0,
-    status: 'Pending',
-  },
-  {
-    id: 'ORD-1003',
-    customer: 'Ali Rezai',
-    date: '2025-04-12',
-    total: 210.75,
-    status: 'Shipped',
-  },
-];
-
-const statusColors = {
-  Paid: 'success',
-  Pending: 'warning',
-  Shipped: 'info',
-  Cancelled: 'error',
-};
 
 const Sales = () => {
+  const [mockOrders , setMockOrders]  = useState([])
+  
+  useEffect(() => {
+    fetch("http://localhost:3001/api/sales/")
+      .then(res => res.json())
+      .then(data => setMockOrders(data))
+  } , [])
+  
+  const statusColors = [
+    'success',
+    'warning',
+    'info',
+    'error'
+  ]
+
+
+ const rand_status =  statusColors[Math.floor(Math.random() * 4)]
   return (
     <div className="Sales">
           <Box sx={{ p: 3 }}>
@@ -65,22 +52,7 @@ const Sales = () => {
             size="small"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <TextField
-            fullWidth
-            label="Status"
-            variant="outlined"
-            size="small"
-            select
-            defaultValue=""
-          >
-            <MenuItem value="">All</MenuItem>
-            <MenuItem value="Paid">Paid</MenuItem>
-            <MenuItem value="Pending">Pending</MenuItem>
-            <MenuItem value="Shipped">Shipped</MenuItem>
-            <MenuItem value="Cancelled">Cancelled</MenuItem>
-          </TextField>
-        </Grid>
+
         <Grid item xs={12} sm={6} md={3}>
           <TextField
             fullWidth
@@ -107,26 +79,18 @@ const Sales = () => {
           <TableHead>
             <TableRow>
               <TableCell>Order ID</TableCell>
-              <TableCell>Customer</TableCell>
               <TableCell>Date</TableCell>
-              <TableCell>Total</TableCell>
-              <TableCell>Status</TableCell>
+              <TableCell>count</TableCell>
+              <TableCell>Color</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {mockOrders.map((order) => (
-              <TableRow key={order.id}>
-                <TableCell>{order.id}</TableCell>
-                <TableCell>{order.customer}</TableCell>
+              <TableRow style={{ cursor: "pointer" }} key={order.id}>
+                <TableCell>{order.product_ID}</TableCell>
                 <TableCell>{order.date}</TableCell>
-                <TableCell>${order.total.toFixed(2)}</TableCell>
-                <TableCell>
-                  <Chip
-                    label={order.status}
-                    color={statusColors[order.status]}
-                    size="small"
-                  />
-                </TableCell>
+                <TableCell>{order.count}</TableCell>
+                <TableCell>{order.color}</TableCell>
               </TableRow>
             ))}
           </TableBody>
