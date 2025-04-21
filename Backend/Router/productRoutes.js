@@ -30,7 +30,7 @@ productRoutes.post("/add", (req, res) => {
 })
 
 productRoutes.put("/edit", (req, res) => {
-    const { id, title, img_url, count, price, status, isInstock, desc } = req.body
+    const { title, img_url, count, price, status, isInstock, desc } = req.body
 
     CMS_DB.query(`
 UPDATE products SET

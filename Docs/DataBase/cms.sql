@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2025 at 04:40 PM
+-- Generation Time: Apr 21, 2025 at 04:48 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,14 +24,55 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(100) NOT NULL,
+  `title` String(120) NOT NULL,
+  `descs` text NOT NULL,
+  `rate` int(100) NOT NULL,
+  `date` String(100) NOT NULL,
+  `unset` String(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `title`, `descs`, `rate`, `date`, `unset`) VALUES
+(6, 'Products', 'Your Products isnot Expensive.', 5, '10-2-25', '0'),
+(7, 'Products', 'Your Products isnot Expensive.', 5, '10-2-25', '0'),
+(8, 'Products', 'Your Products isnot Expensive.', 5, '10-2-25', '0'),
+(9, 'Products', 'Your Products isnot Expensive.', 5, '10-2-25', '1'),
+(10, 'Products', 'Your Products isnot Expensive.', 5, '10-2-25', '1'),
+(11, 'Products', 'Your Products isnot Expensive.', 5, '10-2-25', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mail`
+--
+
+CREATE TABLE `mail` (
+  `id` int(100) NOT NULL,
+  `title` String(120) NOT NULL,
+  `descs` text NOT NULL,
+  `auther` String(100) NOT NULL,
+  `date` String(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `massage`
 --
 
 CREATE TABLE `massage` (
   `id` int(100) NOT NULL,
-  `type` varchar(100) NOT NULL,
-  `content` varchar(100) NOT NULL,
-  `date` varchar(100) NOT NULL
+  `type` String(100) NOT NULL,
+  `content` String(100) NOT NULL,
+  `date` String(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 --
@@ -52,12 +93,12 @@ INSERT INTO `massage` (`id`, `type`, `content`, `date`) VALUES
 
 CREATE TABLE `products` (
   `id` int(100) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `img_url` varchar(100) NOT NULL,
+  `title` String(100) NOT NULL,
+  `img_url` String(100) NOT NULL,
   `count` int(100) NOT NULL,
   `price` int(100) NOT NULL,
-  `status` varchar(100) NOT NULL,
-  `isInstock` varchar(100) NOT NULL,
+  `status` String(100) NOT NULL,
+  `isInstock` String(100) NOT NULL,
   `desc` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
@@ -72,13 +113,36 @@ INSERT INTO `products` (`id`, `title`, `img_url`, `count`, `price`, `status`, `i
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sale`
+--
+
+CREATE TABLE `sale` (
+  `id` int(100) NOT NULL,
+  `product_ID` int(120) NOT NULL,
+  `date` String(100) NOT NULL,
+  `count` int(100) NOT NULL,
+  `color` String(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `sale`
+--
+
+INSERT INTO `sale` (`id`, `product_ID`, `date`, `count`, `color`) VALUES
+(1, 12958, '20-1-2025', 2, 'red'),
+(2, 12958, '20-1-2025', 2, 'red'),
+(3, 12958, '20-1-2025', 2, 'red');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `settings`
 --
 
 CREATE TABLE `settings` (
   `id` int(100) NOT NULL,
-  `Theme_color` varchar(100) NOT NULL,
-  `Site_Name` varchar(100) NOT NULL
+  `Theme_color` String(100) NOT NULL,
+  `Site_Name` String(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 --
@@ -102,16 +166,32 @@ INSERT INTO `settings` (`id`, `Theme_color`, `Site_Name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `id` int(100) NOT NULL,
+  `Transaction_ID` String(120) NOT NULL,
+  `Customer` String(100) NOT NULL,
+  `Payment_Method` String(100) NOT NULL,
+  `date` String(100) NOT NULL,
+  `Amount` int(100) NOT NULL,
+  `Status` String(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `id` int(100) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `familly` varchar(100) NOT NULL,
-  `avatar` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `name` String(100) NOT NULL,
+  `familly` String(100) NOT NULL,
+  `avatar` String(100) NOT NULL,
+  `password` String(100) NOT NULL,
+  `email` String(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 --
@@ -126,6 +206,18 @@ INSERT INTO `user` (`id`, `name`, `familly`, `avatar`, `password`, `email`) VALU
 --
 
 --
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mail`
+--
+ALTER TABLE `mail`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `massage`
 --
 ALTER TABLE `massage`
@@ -138,9 +230,21 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sale`
+--
+ALTER TABLE `sale`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -152,6 +256,18 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `mail`
+--
+ALTER TABLE `mail`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `massage`
@@ -166,10 +282,22 @@ ALTER TABLE `products`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `sale`
+--
+ALTER TABLE `sale`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`

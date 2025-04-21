@@ -14,7 +14,17 @@ msgRoutes.get('/' , (req , res) => {
     })
 })
 
-msgRoutes.get('/remove/:msgID' , (req , res) => {
+msgRoutes.get("/add" , (req , res) => {
+    const { type , content , date } = req.body
+    CMS_DB.query(`INSERT INTO massage VALUES (NULL , '${type}' , '${content}' , '${date}' )` , (err) => {
+        if(err) 
+            console.log(err)
+        else
+            res.send({ message: "Added" })
+    })
+})
+
+msgRoutes.delete('/remove/:msgID' , (req , res) => {
 
     CMS_DB.query(`DELETE FROM massage WHERE id=${req.params.msgID}` , (err) => {
         if(err) {

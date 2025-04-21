@@ -7,16 +7,39 @@ APIs:
     /api/user/ => GET: get users: NM
         /new/ => POST
         /get-all/ => GET
+        /:userID => GET
+        /remove/:userID => DELETE
+        /edit/:userID => PUT
 
     /api/products/ => GET :M
         / => GET 
         /add => POST 
-        /:id/edit 
+        /:id/edit => PUT
+        /:productID => GET
+        /remove/:productID
+
 
     /api/msg/ => :M 
         / => GET
-        /add => POST
+        /add => POST    
+        /remove/:msgID => DELETE
 
      /api/settings/ :M
-	/ => GET
-	/edit  => POST
+    	/ => GET
+    	/edit  => POST
+
+    /api/feedbacks: M
+        /add => POST
+        /:feedbackID => GET
+        /remove/:fb_ID => DELETE
+
+
+    /api/sales/ :M
+        /:sale_ID => GET
+        /add => POST
+        /edit/:sale_ID => PUT
+        
+    /api/sales/ :M 
+        /add => POST
+        /:mailID => GET
+        /remove/:mail_ID => DELETE

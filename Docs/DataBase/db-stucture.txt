@@ -1,31 +1,40 @@
-CMS
-    massage
-		id
-		type
-		content
-		date		
+products 
+  id int(100) NOT NULL,
+  title String(100) NOT NULL,
+  img_url String(100) NOT NULL,
+  count int(100) NOT NULL,
+  price int(100) NOT NULL,
+  status String(100) NOT NULL,
+  isInstock String(100) NOT NULL,
+  desc text NOT NULL
 
-    products
-		id
-		title
-		img_url
-		count
-		price
-		status
-		IsInStock
-		desc
 
-    user
-		
- 		id
- 		name
- 		familly
- 		avatar
- 		password
- 		email 	
-		
-    settings
-		 id 	
-		Theme_color
-	 	Site_Name 	
-    
+sale 
+  id int(100) NOT NULL,
+  product_ID int(120) NOT NULL,
+  date String(100) NOT NULL,
+  count int(100) NOT NULL,
+  color String(100) NOT NULL
+
+settings 
+  id int(100) NOT NULL,
+  Theme_color String(100) NOT NULL,
+  Site_Name String(100) NOT NULL
+
+transactions
+  id int(100) NOT NULL,
+  Transaction_ID String(120) NOT NULL,
+  Customer String(100) NOT NULL,
+  Payment_Method String(100) NOT NULL,
+  date String(100) NOT NULL,
+  Amount int(100) NOT NULL,
+  Status String(100) NOT NULL
+
+
+user 
+  id int(100) NOT NULL,
+  name String(100) NOT NULL,
+  familly String(100) NOT NULL,
+  avatar String(100) NOT NULL,
+  password String(100) NOT NULL,
+  email String(100) NOT NULL
